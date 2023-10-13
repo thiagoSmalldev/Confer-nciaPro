@@ -1,0 +1,49 @@
+<div class="row mt-5">
+  <h2>Palestras cadastradas</h2>
+  <div class="col-12 d-flex mb-2">
+    <h2 class="mb-0"></h2>
+
+    <%= form_tag import_lectures_path, multipart: true, class: "mb-0" do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Importar", class: "btn btn-info" %>
+    <% end %>
+  </div>
+
+  <div class="col-12 d-flex mb-2">
+    <%= link_to "Criar Palestra", new_lecture_path, class: "btn btn-primary mb-3 btn pull-right" %>
+  </div>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Título</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tracks = organize_tracks(@lectures) %>
+      <% tracks.each do |track, sessions| %>
+        <tr>
+          <th scope="row" colspan="4"><strong><%= track %></strong></th>
+        </tr>
+
+        <% sessions.each do |session| %>
+          <tr>
+            <td colspan="3"><%= session[:event] %></td>
+            <td>
+              <% if session[:id] != "lunch" %>
+                <div class="d-flex">
+                  <%= link_to "Editar", edit_lecture_path(session[:id]), class: "btn btn-primary mr-2" %>
+                  <%= button_to "Excluir", lecture_path(session[:id]), method: :delete,
+                      data: { confirm: "Tem certeza que deseja excluir esta palestra?" }, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

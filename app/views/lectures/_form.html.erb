@@ -1,0 +1,14 @@
+<%= form_for @lecture do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Título" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :duration, "Duração (minutos)" %>
+    <%= f.number_field :duration, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Salvar Alterações", class: "btn btn-primary" %>
+    <%= link_to "Voltar", lectures_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
