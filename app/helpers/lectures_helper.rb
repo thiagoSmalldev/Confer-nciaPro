@@ -1,5 +1,3 @@
-# app/helpers/lectures_helper.rb
-
 module LecturesHelper
   def organize_tracks(lectures)
     track_a = organize_track(lectures, "Track A:")
