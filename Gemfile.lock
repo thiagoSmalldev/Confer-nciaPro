@@ -155,6 +155,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
     popper_js (2.11.8)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -236,7 +237,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.7-x86_64-linux)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
@@ -274,13 +274,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  pg
   pry-rails
   puma (>= 5.0)
   rails (~> 7.1.0)
   redis (>= 4.0.1)
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data
